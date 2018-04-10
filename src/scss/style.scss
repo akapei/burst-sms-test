@@ -12,6 +12,13 @@ body {
   margin: 0;
   font-family: $open-sans;
 }
+
+h1 {
+  text-transform: uppercase;
+  font-size: 18px;
+  margin: 0 0 20px;
+}
+
 nav {
   height: 40px;
   background: #d8d8d8;
@@ -36,7 +43,7 @@ form {
   display: flex;
   flex-direction: column;
   background: #f4f4f4;
-  padding: 50px;
+  padding: 60px;
   width: 40%;
   margin: 0 auto 100px;
   border-radius: 3px;

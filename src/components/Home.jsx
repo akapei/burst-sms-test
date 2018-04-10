@@ -55,6 +55,7 @@ class Home extends React.Component {
                     <img id="logo" src="logo.png"/>
                 </header>
                 <form onSubmit={this.handleSubmit}>
+                    <h1>Send a message</h1>
                     <label>
                         To
                         <input name="number" type="text" maxLength="11" value={this.state.number} onChange={this.handleChange}/>
