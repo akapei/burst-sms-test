@@ -1,40 +1,7 @@
 import React from 'react'
-import axios from 'axios'
+import {sendMessage} from '../../request'
 
-function sendMessage(number, text) {
-
-    axios({
-            url: 'http://localhost:8080/send-message',
-            method: 'get',
-            params: {
-                to: number,
-                message: text
-            }
-        }
-    )
-        .then(function (response) {
-            console.log(response)
-        })
-        .catch(function (error) {
-            if (error.response) {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
-                console.log(error.response.data);
-                console.log(error.response.status);
-                console.log(error.response.headers);
-            } else if (error.request) {
-                // The request was made but no response was received
-                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                // http.ClientRequest in node.js
-                console.log(error.request);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                console.log('Error', error.message);
-            }
-        })
-}
-
-class Form extends React.Component {
+class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {number: '', text: ''}
@@ -49,33 +16,40 @@ class Form extends React.Component {
         this.setState({
             [name]: target.value
         })
-
-        const state = this.state
-        console.log(state.number, state.text)
     }
 
     handleSubmit(event) {
         const state = this.state
-        console.log(state.number, state.text)
         sendMessage(state.number, state.text)
         event.preventDefault()
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    To:
-                    <input name="number" type="text" value={this.state.to} onChange={this.handleChange}/>
-                </label>
-                <label>
-                    Message:
-                    <input name="text" type="text" value={this.state.text} onChange={this.handleChange}/>
-                </label>
-                <input type="submit" value="Submit"/>
-            </form>
-        );
+            <div>
+                <nav></nav>
+                <header>
+                    <img id="logo" src="logo.png"/>
+                </header>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            To
+                            <input name="number" type="text" value={this.state.to} onChange={this.handleChange}/>
+                            <span>INVALID NUMBER</span>
+                        </label>
+                        <label>
+                            Message
+                            <textarea name="text" rows="10"  value={this.state.text} onChange={this.handleChange}/>
+                            <span></span>
+                        </label>
+                        <input type="submit" value="SEND"/>
+                    </form>
+                <footer>
+                    <a href="http://www.burstsms.com.au/" target="_blank">BURST SMS HOME</a>
+                </footer>
+            </div>
+        )
     }
 }
 
-export default Form;
+export default Home

@@ -9,11 +9,7 @@
 ```npm i```
 
 #### 3. Add/Config .env
-Add variables KEY and SECRET
+Create .env file in root and add the variables KEY and SECRET for credentials. Optionally, PORT.
 
 #### 4. Run
-```npm run dev``` - run locally using webpack server
-
-```npm run build:production``` - build prod bundle
-
-```npm run build:production``` - run locally using webpack server and production build 
+```npm run start``` - build and run server

@@ -1,11 +1,96 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+
+$open-sans: 'Open Sans', sans-serif;
+$teal: #00aec5;
+
 body {
-  background: linear-gradient(to left,#000428 ,#004e92);
-  color: #f8f8f8;
+  background: #fff;
+  color: #4a4a4a;
   display: flex;
   justify-content: center;
+  padding: 0;
+  margin: 0;
+  font-family: $open-sans;
+}
+nav {
+  height: 40px;
+  background: #d8d8d8;
 }
 
-h1 {
-  color: #f8f8f8;
-  font-family: helvetica;
+#root {
+  width: 100%;
+}
+
+header {
+  text-align: center;
+  padding: 100px 0 50px;
+}
+
+#logo {
+  text-align: center;
+  width: 200px;
+  height: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background: #f4f4f4;
+  padding: 50px;
+  width: 40%;
+  margin: 0 auto 100px;
+  border-radius: 3px;
+
+  label {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 40px;
+    color: #9b9b9b;
+
+  }
+
+  input {
+    padding: 5px;
+  }
+
+  input, textarea {
+    margin-top: 5px;
+    padding: 20px;
+    font-family: $open-sans;
+    font-size: 13px;
+    background: #eae8e8;
+    border: none;
+    color: #4a4a4a;
+
+    &:focus {
+      background: #ffffff;
+      outline: none;
+      border: none;
+    }
+  }
+
+  input[type="submit"] {
+    background: $teal;
+    width: 130px;
+    border-radius: 3px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 5px
+  }
+}
+
+footer {
+  background: #eae8e8;
+  text-align: center;
+  padding: 20px;
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    color: $teal;
+  }
 }

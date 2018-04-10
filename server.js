@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8080
 const KEY = process.env.KEY
 const SECRET = process.env.SECRET
 
-app.use(express.static(__dirname + '/dist'))
+app.use(express.static(__dirname + '/dist'), express.static(__dirname + '/assets'))
 
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
@@ -36,7 +36,5 @@ app.get('/send-message', (req, res) => {
             console.log(error)
         })
 })
-
-
 
 app.listen(PORT, () => console.log('App listening on port' + PORT + '!'))
