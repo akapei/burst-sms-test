@@ -5,7 +5,7 @@ import {sendMessage} from '../../request'
 class Home extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {number: '', text: ''}
+        this.state = {number: '', text: '', charlength: 480, validation: false}
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -14,9 +14,30 @@ class Home extends React.Component {
     handleChange(event) {
         const target = event.target
         const name = target.name
+
+
         this.setState({
             [name]: target.value
         })
+
+        if(name === 'number') {
+            if(/^\d{10}$/.test(this.state.number)){
+                this.setState({
+                    validation: true
+                })
+            } else {
+                this.setState({
+                    validation: false
+                })
+            }
+        }
+
+        if(name === 'text') {
+            const charlength = 480 - this.state.text.length - 1
+            this.setState({
+                charlength: charlength
+            })
+        }
     }
 
     handleSubmit(event) {
@@ -26,6 +47,7 @@ class Home extends React.Component {
     }
 
     render() {
+
         return (
             <div>
                 <nav></nav>
@@ -35,12 +57,13 @@ class Home extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         To
-                        <input name="number" type="text" value={this.state.to} onChange={this.handleChange}/>
+                        <input name="number" type="text" maxLength="11" value={this.state.number} onChange={this.handleChange}/>
+                        {this.state.validation ? (<span></span>) : (<span>INVALID NUMBER</span>)}
                     </label>
                     <label>
                         Message
-                        <textarea name="text" rows="10" value={this.state.text} onChange={this.handleChange}/>
-                        <span></span>
+                        <textarea name="text" rows="10" maxLength="480" value={this.state.text} onChange={this.handleChange}/>
+                        <span>Characters left: {this.state.charlength}</span>
                     </label>
                     <input type="submit" value="SEND"/>
                 </form>
