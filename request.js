@@ -25,4 +25,5 @@ export function sendMessage(number, text) {
                 console.log('Error', error.message);
             }
         })
+
 }
