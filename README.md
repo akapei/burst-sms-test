@@ -9,7 +9,11 @@
 ```npm i```
 
 #### 3. Add/Config .env
-Create .env file in root and add the variables KEY and SECRET for credentials. Optionally, PORT.
+Create .env file in the root and add the variables:
+
+ KEY and SECRET for Burst SMS credentials
+ 
+ BITLY_TOKEN for Bitly access token. 
 
 #### 4. Run
 ```npm run start``` - build and run server
