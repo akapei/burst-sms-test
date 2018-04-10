@@ -4,19 +4,13 @@ import ReactDOM from 'react-dom';
 
 require('dotenv').config()
 
-import Home from './components/Home';
+import Form from './components/Home';
 
 const renderApplication = () => {
   ReactDOM.render(
-    <Home /> ,
+    <Form /> ,
     document.querySelector('#root')
   );
 }
 
-renderApplication(Home);
-
-if (module.hot) {
-  module.hot.accept("./components/Home", () => {
-    renderApplication();
-  });
-}
+renderApplication(Form);

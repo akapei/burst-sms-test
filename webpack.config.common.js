@@ -43,5 +43,8 @@ module.exports = {
 		port,
 		historyApiFallback: true,
 		publicPath: '/dist/',
-	}
+	},
+    node: {
+        fs: 'empty'
+    }
 }

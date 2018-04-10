@@ -9,6 +9,7 @@
 ```npm i```
 
 #### 3. Add/Config .env
+Add variables KEY and SECRET
 
 #### 4. Run
 ```npm run dev``` - run locally using webpack server
